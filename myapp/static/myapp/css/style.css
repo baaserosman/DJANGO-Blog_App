@@ -22,16 +22,27 @@ body {
 /*! ------------------CARD-CONTAİNER-----------------------*/
 .card-container {
   display: flex;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
- 
+}
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .card {
     width:18rem;
     height:25rem;
     box-shadow: 10px 10px 10px rgb(83, 79, 79);
-    border-radius:10px;
-    
+    border-radius:10px;    
+}
+
+.card-text{ 
+    white-space: nowrap;
+    width: 15rem;
+    overflow: hidden;
+    text-overflow: Ellipsis;
+  
 }
 
 
