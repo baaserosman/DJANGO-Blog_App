@@ -1,0 +1,35 @@
+{%extends 'base.html' %}
+
+
+{% block content %}
+<h1 class="text-center">Blog App</h1>
+<br>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    
+    {% for post in posts  %}
+
+    <div class="col">
+        <div class="card h-100">
+            <img src="{{post.image}}" class="card-img-top w-100" alt="image">
+            <div class="card-body">
+                <h5 class="card-title">{{post.title}}</h5>
+                <p class="card-text">{{post.content}}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">{{post.last_update}}</small>
+            </div>  
+            <div class="text-center m-2">
+                <a href="">
+            <button type="button" class="btn btn-info w-50">Details</button></a>
+            </div>          
+            
+        </div>
+    </div> 
+
+    {% endfor %}  
+  
+</div>
+    
+{% endblock content %}
+    
