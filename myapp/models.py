@@ -18,10 +18,18 @@ class Post(models.Model) :
     class Status(models.TextChoices):
        Draft = "Draft"
        Published = "Published"
-    status = models.SlugField(max_length=9, choices=Status.choices, default=Status.Draft)
-    slug = models.IntegerField(max_length=20)
+    status = models.CharField(max_length=9, choices=Status.choices, default=Status.Draft)
+
+    slug = models.IntegerField()
 
 
     def __str__(self):
         return f"{self.title} - {self.content} - {self.image} - {self.publish_date} - {self.last_update} - {self.category} - {self.status} - {self.slug}"
 
+class comments(models.Model) :
+   time_stamp = models.DateTimeField()
+
+
+
+
+# category = models.ForeignKey(category, on_delete=models.PROTECT, blank=True, null=True)

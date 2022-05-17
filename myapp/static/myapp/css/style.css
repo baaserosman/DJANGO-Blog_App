@@ -1,13 +1,16 @@
-body {
+body {    
     margin:0;
+    padding:0;
+    box-sizing: border-box;
     background-image: linear-gradient(to left, rgb(208, 208, 211),rgba(108, 174, 250, 0.397));
 }
+
 
 /*! --------------------NAVBAR--------------------------*/
 
 .navbar-light .navbar-nav .nav-link {
   color: blue;
-  font-size: 1,3rem;
+  font-size: 1,4rem;
   font-weight: 700;
   transition: all 1s;
   color: rgb(59, 56, 56);
@@ -45,5 +48,13 @@ body {
   
 }
 
+/*! ------------------NEWBLOG-CONTAİNER-----------------------*/
 
-
+.newblog-container {
+  background-color:red;
+  margin: 2rem ;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

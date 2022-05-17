@@ -2,11 +2,13 @@
 
 
 {% block content %}
+<div class="newblog-container">
+<h4>Blog Post</h4>
 <form action="" method="post" enctype="multipart/form-data">
   {% csrf_token %} 
   {{ form.as_p }}
-  <input type="submit" value="OK" />
+  <input type="submit" value="Post" class="btn btn-info w-25" />
 </form>
-    
+</div>    
 {% endblock content %}
     

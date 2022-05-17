@@ -13,13 +13,13 @@
             <div class="card-body">
                 <h5 class="card-title">{{post.title}}</h5>
                 <p class="card-text">{{post.content}}</p>
-                <p>icons / comments / like</p>
+                <p class="text-danger">icons / comments / like</p>
             </div>
             <div class="card-footer">
                 <small class="text-muted">{{post.last_update}}</small>
             </div>  
             <div class="text-center m-2">
-                <a href="">
+                <a href="{% url 'detail' post.id %}">
             <button type="button" class="btn btn-info w-50">Details</button></a>
             </div>          
             
