@@ -11,7 +11,6 @@ def home(request):
     context = {
         'posts':posts
     }
-    print(posts)
     return render(request, "myapp/home.html", context)
 
 
@@ -20,6 +19,7 @@ def detail(request,id):
     context = {
         "post" : post
     }
+  
     return render(request, "myapp/detail.html", context)
 
 
@@ -43,7 +43,7 @@ def post_update(request,id):
     form = PostForm(instance=post)
 
     if request.method == "POST" :
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST, request.FILES,  instance=post)
 
         if form.is_valid():
             form.save()
@@ -54,3 +54,12 @@ def post_update(request,id):
         "form" : form,
     }
     return render(request, "myapp/post_update.html", context)
+
+def post_delete(request,id):
+    post = Post.objects.get(id=id)
+    if request.method == "POST" :
+        post.delete()
+        messages.success(request, "Post deleted.")
+        return redirect("home")
+    
+    return render(request, "myapp/post_delete.html")

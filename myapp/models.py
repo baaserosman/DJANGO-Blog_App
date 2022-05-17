@@ -5,7 +5,7 @@ from django.db import models
 class Post(models.Model) :
     title = models.CharField(max_length=40)
     content = models.TextField(max_length=500)
-    image = models.ImageField(upload_to="media", blank=True, default="./static/myapp/images/django.png")
+    image = models.ImageField(upload_to="myapp/", blank=True, default="django.png")
     publish_date = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(auto_now=True)
 
@@ -20,7 +20,7 @@ class Post(models.Model) :
        Published = "Published"
     status = models.CharField(max_length=9, choices=Status.choices, default=Status.Draft)
 
-    slug = models.IntegerField()
+    slug = models.IntegerField(unique=True)
 
 
     def __str__(self):
@@ -30,6 +30,6 @@ class comments(models.Model) :
    time_stamp = models.DateTimeField()
 
 
+#! /////////////////// USERS / LOGIN / REGISTER ////////////////////////
 
 
-# category = models.ForeignKey(category, on_delete=models.PROTECT, blank=True, null=True)
