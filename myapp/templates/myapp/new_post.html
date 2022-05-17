@@ -3,12 +3,16 @@
 
 {% block content %}
 <div class="newblog-container">
-<h4>Blog Post</h4>
-<form action="" method="post" enctype="multipart/form-data">
+  <div>
+    <h4>Blog Post</h4></div>
+  <div>
+  <form action="" method="post" >
   {% csrf_token %} 
   {{ form.as_p }}
   <input type="submit" value="Post" class="btn btn-info w-25" />
-</form>
+  </form> 
+</div>
+
 </div>    
 {% endblock content %}
     

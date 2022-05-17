@@ -4,7 +4,7 @@
 {% block content %}
 <nav class="mb-3  navbar navbar-expand-md navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{% url 'home'  %}">
           <h5>BLOG APP</h5>
         </a>
         <button
@@ -35,7 +35,7 @@
               <a class="nav-link" href="#">Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">New Post</a>
+              <a class="nav-link" href="{% url 'new_post' %}">New Post</a>
             </li>
           </ul>
         </div>
