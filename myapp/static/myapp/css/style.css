@@ -25,7 +25,7 @@ body {
 /*! ------------------CARD-CONTAİNER-----------------------*/
 .card-container {
   display: flex;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
 }
 .row{
@@ -51,10 +51,12 @@ body {
 /*! ------------------NEWBLOG-CONTAİNER-----------------------*/
 
 .newblog-container {
-  background-color:red;
-  margin: 2rem ;
+  background-color:rgba(81, 83, 83, 0.459);
+  width : 40rem;
+  margin: 2rem auto ;
   padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }

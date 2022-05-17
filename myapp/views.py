@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Post
 from .forms import PostForm
@@ -29,9 +30,27 @@ def new_post(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.success(request, "Post created succesfully.")
             return redirect("home")
 
     context = {
         "form" : form,
     }
     return render(request, "myapp/new_post.html", context)
+
+def post_update(request,id):
+    post = Post.objects.get(id=id)
+    form = PostForm(instance=post)
+
+    if request.method == "POST" :
+        form = PostForm(request.POST, instance=post)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Post updated.")
+            return redirect("home")
+    
+    context = {
+        "form" : form,
+    }
+    return render(request, "myapp/post_update.html", context)
