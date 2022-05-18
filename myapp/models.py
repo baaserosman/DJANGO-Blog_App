@@ -5,7 +5,7 @@ from django.db import models
 class Post(models.Model) :
     title = models.CharField(max_length=40)
     content = models.TextField(max_length=500)
-    image = models.ImageField(upload_to="myapp/", blank=True, default="django.png")
+    image = models.ImageField(upload_to="myapp/", default="django.png")
     publish_date = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(auto_now=True)
 

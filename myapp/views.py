@@ -23,7 +23,6 @@ def detail(request,id):
     return render(request, "myapp/detail.html", context)
 
 
-
 def new_post(request):
     form = PostForm()
     if request.method == 'POST':
@@ -41,10 +40,11 @@ def new_post(request):
 def post_update(request,id):
     post = Post.objects.get(id=id)
     form = PostForm(instance=post)
-
+    print(form)
+ 
     if request.method == "POST" :
         form = PostForm(request.POST, request.FILES,  instance=post)
-
+        
         if form.is_valid():
             form.save()
             messages.success(request, "Post updated.")
