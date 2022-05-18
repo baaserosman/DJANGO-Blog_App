@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     #!MYAPP
     "myapp",
-    
+    "users_base",   
 ]
 
 MIDDLEWARE = [
@@ -141,4 +141,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-AUTH_USER_MODEL = "myapp.User"
+AUTH_USER_MODEL = "users_base.User"
+

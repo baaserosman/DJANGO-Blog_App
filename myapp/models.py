@@ -26,10 +26,9 @@ class Post(models.Model) :
     def __str__(self):
         return f"{self.title} - {self.content} - {self.image} - {self.publish_date} - {self.last_update} - {self.category} - {self.status} - {self.slug}"
 
-class comments(models.Model) :
-   time_stamp = models.DateTimeField()
+# class comments(models.Model) :
+#    time_stamp = models.DateTimeField()
 
 
-#! /////////////////// USERS / LOGIN / REGISTER ////////////////////////
 
 
