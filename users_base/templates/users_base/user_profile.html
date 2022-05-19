@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="newblog-container">
+    <div>
+        <h4 class="mb-3 text-center">PROFILE</h4>
+    </div>
+    <div>
+        {% load crispy_forms_tags %}
+        <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}         
+        {{ form | crispy }}
+            <input type="submit" value="Post" class="mt-2 btn btn-info w-25" />
+        </form> 
+    </div>
+</div>   
+    
+{% endblock content %}
+    

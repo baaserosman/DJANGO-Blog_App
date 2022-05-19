@@ -3,6 +3,8 @@ from django.shortcuts import get_object_or_404, render, redirect
 from .models import Post
 from .forms import PostForm
 from django.contrib.auth.decorators import login_required
+from .utils import get_random_code
+from django.template.defaultfilters import slugify
 
 
 # Create your views here.
@@ -31,7 +33,9 @@ def new_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            form.instance.author = request.user            
+            form.instance.author = request.user
+            code = slugify(form.instance.title + " " + get_random_code())
+            form.instance.slug = code      
             form.save()
             messages.success(request, "Post created succesfully.")
             return redirect("home")
@@ -52,6 +56,8 @@ def post_update(request,id):
         
         if form.is_valid():
             form.instance.author = request.user
+            code = slugify(form.instance.title + " " + get_random_code())
+            form.instance.slug = code 
             form.save()
             messages.success(request, "Post updated.")
             return redirect("home")

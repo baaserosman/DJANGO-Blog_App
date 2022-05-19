@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from .models import User
 from .forms import UserForm
 from django.contrib.auth.forms import AuthenticationForm
 
-def register(request):
+
+def register(request):   
 
     form_user = UserForm(request.POST or None)
 
@@ -48,3 +50,20 @@ def user_logout(request):
     messages.success(request, "You logged out!")
     logout(request)
     return redirect("home")
+
+
+def user_profile(request,id):
+    user = User.objects.get(id=id)
+    form = UserForm(instance = user)
+    
+    if request.method == 'POST':
+        form = UserForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():           
+            form.save()
+            messages.success(request, "Profile updated.")
+            return redirect("home")
+
+    context = {
+        "form" : form,
+    }
+    return render(request, "users_base/user_profile.html", context)
