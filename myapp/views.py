@@ -2,6 +2,8 @@ from django.contrib import messages
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Post
 from .forms import PostForm
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 #! /////////////// READ //////////////
@@ -14,20 +16,22 @@ def home(request):
     return render(request, "myapp/home.html", context)
 
 
-def detail(request,id):
-    post = get_object_or_404(Post, id=id)
+def detail(request,slug):
+    post = get_object_or_404(Post, slug=slug)
     context = {
         "post" : post
     }
   
     return render(request, "myapp/detail.html", context)
 
-
+@login_required
 def new_post(request):
     form = PostForm()
+    
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
+            form.instance.author = request.user            
             form.save()
             messages.success(request, "Post created succesfully.")
             return redirect("home")
@@ -37,6 +41,7 @@ def new_post(request):
     }
     return render(request, "myapp/new_post.html", context)
 
+@login_required
 def post_update(request,id):
     post = Post.objects.get(id=id)
     form = PostForm(instance=post)
@@ -46,6 +51,7 @@ def post_update(request,id):
         form = PostForm(request.POST, request.FILES,  instance=post)
         
         if form.is_valid():
+            form.instance.author = request.user
             form.save()
             messages.success(request, "Post updated.")
             return redirect("home")
@@ -55,6 +61,7 @@ def post_update(request,id):
     }
     return render(request, "myapp/post_update.html", context)
 
+@login_required
 def post_delete(request,id):
     post = Post.objects.get(id=id)
     if request.method == "POST" :

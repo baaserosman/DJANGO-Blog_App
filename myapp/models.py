@@ -19,7 +19,7 @@ class Post(models.Model) :
    image = models.ImageField(upload_to="myapp/", default="django.png")
    publish_date = models.DateTimeField(auto_now_add=True)
    last_update = models.DateTimeField(auto_now=True)
-   # author = models.ForeignKey(User, on_delete=models.CASCADE)
+   author = models.ForeignKey(User, on_delete=models.CASCADE)
    category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name="cars")    
    status = models.CharField(max_length=10, choices=OPTIONS, default="Draft")
    slug = models.SlugField(blank=True, unique=True)         #* django-is-perfekt
