@@ -60,6 +60,7 @@ def user_profile(request,id):
         form = UserForm(request.POST, request.FILES, instance=user)
         if form.is_valid():           
             form.save()
+            login(request, user)
             messages.success(request, "Profile updated.")
             return redirect("home")
 

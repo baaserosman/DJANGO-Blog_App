@@ -3,6 +3,9 @@ from users_base.models import User
 
 #! Create your models here.
 
+
+# def user_directory_path(instance, filename):
+#    return "myapp/{0}/{1}".format(instance.author.id, filename)
 class Category(models.Model):
    name = models.CharField(max_length=100)
    class Meta:

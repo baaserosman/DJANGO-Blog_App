@@ -3,43 +3,41 @@
 {% load static  %}
 
 {% block content %}
-<div>
-    <h1 class="text-center">Blog App</h1>
-</div>
-<br>
+<div class="mt-5 mb-3">
+    <div>
+        <h1 class="text-center pt-4">Blog App</h1>
+    </div>
+    <br>
 <div class="card-container">
     <div class=" row row-cols-1 row-cols-md-3 g-4">    
         {% for post in posts  %}
         <div class="col d-flex justify-content-center ">
-            <div class="card  p-2">
-                
+            <div class="card p-2">                
                 {% if post.image %}
-                    <img src="{{ post.image.url }}" class="card-img-top w-100  " alt="image">
+                    <img src="{{ post.image.url }}" class="card-img-top w-100" style="max-height:9rem;"alt="image">
                     {% else %}
                     <img src="media/django.png" class="card-img-top w-100  " alt="image">
                 {% endif %}
-                    
-                
+                                
                 <div class="card-body">
                     <h5 class="card-title">{{post.title}}</h5>
-                    <p class="card-text">{{post.content}}</p>
+                    <p class="card-text home-card-text">{{post.content}}</p>
                     <p class="text-danger">icons / comments / like</p>
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">{{post.last_update}}</small>
                 </div>  
-                <div class="text-center m-2">
+                <div class="text-center p-2">
                     <a href="{% url 'detail' post.slug %}">
                 <button type="button" class="btn btn-info w-50">Details</button></a>
-                </div>          
-                
+                </div>     
             </div>
         </div> 
-
         {% endfor %}  
-    
     </div>
+</div> 
 </div>
+
 
     
 {% endblock content %}

@@ -8,31 +8,30 @@ body {
 
 /*! --------------------NAVBAR--------------------------*/
 
-.navbar-light .navbar-nav .nav-link {
-  color: blue;
-  font-size: 1,4rem;
-  font-weight: 700;
-  transition: all 1s;
-  color: rgb(59, 56, 56);
+.navbar {
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index: 1;
+
 }
-.navbar-light .navbar-nav .nav-link.active {
-  color: rgb(59, 56, 56);
-}
-.navbar-light .navbar-nav .nav-link:hover {
-  color: #bb2d3b;
-}
+
+
 
 /*! ------------------CARD-CONTAİNER-----------------------*/
 .card-container {
   display: flex;
   justify-content:center;
-  align-items: center;
 }
-.row{
+
+
+/* .row{
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
+
 .card {
     width:18rem;
     height:25rem;
@@ -40,7 +39,7 @@ body {
     border-radius:10px;    
 }
 
-.card-text{ 
+.home-card-text{ 
     white-space: nowrap;
     width: 15rem;
     overflow: hidden;
@@ -48,9 +47,19 @@ body {
 }
 
 .newblog-container {
-  background-color:rgba(81, 83, 83, 0.459);
-  width : 40rem;
-  margin: 2rem auto ;
+  background-color:rgba(154, 207, 207, 0.842);
+  max-width : 40rem;
+  margin: 2rem ;
   padding: 2rem;
-  
+  box-shadow: 10px 10px 20px rgb(75, 70, 70);
+  border-radius:20px;
+}
+
+.detail-container{
+  background-color:rgba(213, 247, 247, 0.842);
+  max-width : 40rem;
+  margin: 2rem ;
+  padding: 2rem;
+  box-shadow: 10px 10px 20px rgb(75, 70, 70);
+  border-radius:20px;
 }
