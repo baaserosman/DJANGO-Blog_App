@@ -4,7 +4,7 @@
 {% block content %}
 <div class="newblog-container w-50 text-center">
   <form action="" method="POST" class="m-2">
-  <h5>Are You Sure!</h5>
+  <h5>Are You Sure delete {{ post.title }}!</h5>
   {% csrf_token %}
   <input type="submit" value="Yes" class="btn btn-success" />
 </form>

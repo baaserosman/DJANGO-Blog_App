@@ -4,21 +4,30 @@
 {% block content %}
 <div class="container d-flex justify-content-center mt-5">
     <div class="newblog-container">
-    <div>
-        <h4 class="mb-3 text-center">PROFILE</h4>
-    </div>
-    <div>
-        {% load crispy_forms_tags %}
-        <form action="" method="post" enctype="multipart/form-data">
-        {% csrf_token %}         
-        {{ form | crispy }}
-        <div class="text-center mt-3">
-           <input type="submit" value="Post" class="mt-2 btn btn-info w-25" /> 
+        <div>
+            <h4 class="mb-3 text-center">PROFILE</h4>
         </div>
-            
-        </form> 
+        <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+        </div>
     </div>
-</div>   
+
+
+        <div>
+            {% load crispy_forms_tags %}
+            <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}         
+            {{ form | crispy }}
+            <div class="text-center mt-3">
+            <input type="submit" value="Post" class="mt-2 btn btn-info w-25" /> 
+            </div>
+                
+            </form> 
+        </div>
+    </div>   
 </div>
 
     

@@ -1,11 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-# Create your models here.
-
+def user_profile_path(instance, filename):
+    return 'user/{0}/{1}'.format(instance.user.id, filename)
 class User(AbstractUser):
-    bio = models.CharField(max_length=500, blank=True)
-    profile_pic = models.ImageField(upload_to='profile_pics', blank=True)
+    bio = models.TextField(blank=True)
+    profile_pic = models.ImageField(upload_to=user_profile_path, default="avatar.png")
 
     username = models.EmailField("email adress", unique=True)
     REQUIRED_FIELDS = []
