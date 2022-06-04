@@ -23,7 +23,7 @@ class Post(models.Model) :
    # last_update = models.DateTimeField(auto_now=True)
    author = models.ForeignKey(User, on_delete=models.CASCADE)      
    status = models.CharField(max_length=10, choices=OPTIONS, default="d")
-   slug = models.SlugField(blank=True, unique=True)         #* django-is-perfekt
+   slug = models.SlugField(blank=True)         #* django-is-perfekt
 
 
    def __str__(self):

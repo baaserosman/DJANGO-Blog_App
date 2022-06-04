@@ -14,7 +14,9 @@ body {
   left:0;
   right:0;
   z-index: 1;
-
+}
+.collapse {
+  font-size:1.5rem;
 }
 
 

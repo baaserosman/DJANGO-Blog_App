@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .models import User
-from .forms import UserForm
+from .forms import UserForm, ProfileUpdateForm
 from django.contrib.auth.forms import AuthenticationForm
 
 
@@ -54,10 +54,11 @@ def user_logout(request):
 
 def user_profile(request,id):
     user = User.objects.get(id=id)
-    form = UserForm(instance = user)
+    form = ProfileUpdateForm(instance = user)
     
     if request.method == 'POST':
-        form = UserForm(request.POST, request.FILES, instance=user)
+        form = ProfileUpdateForm(request.POST, request.FILES, instance=user)
+        # print("USER" : instance)
         if form.is_valid():           
             form.save()
             login(request, user)
@@ -68,3 +69,4 @@ def user_profile(request,id):
         "form" : form,
     }
     return render(request, "users_base/user_profile.html", context)
+
