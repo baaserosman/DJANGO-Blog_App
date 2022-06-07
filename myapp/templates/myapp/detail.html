@@ -38,12 +38,7 @@
                 <input type="hidden" name="post">
                 <input type="hidden" name="user">
                 
-                {% if post.like_count == 0  %}
-                  <button class="btn btn-outline-none" type="submit"><i class="far fa-regular fa-heart fa-lg"></i></button>
-
-                {% else %}
-                  <button class="btn btn-outline-none text-danger" type="submit"><i class="far fa-solid fa-heart fa-lg"></i></button>
-                {% endif %}                
+                <button class="btn btn-outline-danger" type="submit">Like it!</button>               
           </form>
           <hr>
           <h4>Leave a comment below</h4>
@@ -53,6 +48,19 @@
                 <button class="btn btn-info btn-sm mt-2">SEND</button>
             </form>
             <hr>
+            <h4>Comments</h4>
+            {% for comment in post.comments %}
+            <div>
+                <p>
+                    <small><b>Comment by {{comment.user}}</b></small> - <small>{{ comment.time_stamp|timesince }} ago.
+                    </small>
+                </p>
+                <p>
+                    {{ comment.content }}
+                </p>
+            </div>
+            <hr>
+            {% endfor %}
 
 
       </div>
