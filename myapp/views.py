@@ -8,10 +8,6 @@ from django.template.defaultfilters import slugify
 
 
 
-
-# Create your views here.
-#! /////////////// READ //////////////
-
 def home(request):
     posts = Post.objects.filter(status="p")
     context = {
